@@ -1,3 +1,3 @@
-﻿registrationModule.controller("InstructorController", function ($scope, bootstrappedInstructors) {
-  $scope.instructors = bootstrappedInstructors.instructors;
+﻿registrationModule.controller("InstructorsController", function ($scope, bootstrappedData) {
+  $scope.instructors = bootstrappedData.instructors;
 });

@@ -1,3 +1,3 @@
-﻿registrationModule.controller("CoursesController", function ($scope, boostrappedCourses) {
-  $scope.courses = boostrappedCourses.courses;
+﻿registrationModule.controller("CoursesController", function ($scope, bootstrappedData) {
+  $scope.courses = bootstrappedData.courses;
 });
