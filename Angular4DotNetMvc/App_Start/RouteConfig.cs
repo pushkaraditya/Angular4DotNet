@@ -16,7 +16,7 @@ namespace Angular4DotNetMvc
       routes.MapRoute(
           name: "Default",
           url: "{controller}/{action}/{id}",
-          defaults: new { controller = "Courses", action = "Index", id = UrlParameter.Optional }
+          defaults: new { controller = "Registration", action = "Index", id = UrlParameter.Optional }
       );
     }
   }

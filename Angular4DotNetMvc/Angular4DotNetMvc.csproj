@@ -110,9 +110,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\CoursesController.cs" />
+    <Compile Include="Controllers\InstructorsController.cs" />
+    <Compile Include="Controllers\RegistrationController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Courses\CourseVm.cs" />
+    <Compile Include="Models\Instructors\InstructorVm.cs" />
+    <Compile Include="Models\Registration\RegistrationVm.cs" />
+    <Compile Include="Models\Registration\RegistrationVmBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -157,6 +163,7 @@
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\angular.min.js.map" />
     <Content Include="Scripts\angular-route.min.js.map" />
+    <Content Include="Scripts\Courses\courses-controller.js" />
     <Content Include="Scripts\errors.json" />
     <Content Include="Scripts\angular-touch.min.js.map" />
     <Content Include="Scripts\angular-sanitize.min.js.map" />
@@ -916,8 +923,10 @@
     <Content Include="Scripts\i18n\angular-locale_zh.js" />
     <Content Include="Scripts\i18n\angular-locale_zu-za.js" />
     <Content Include="Scripts\i18n\angular-locale_zu.js" />
+    <Content Include="Scripts\Instructors\instrcutors-controller.js" />
     <Content Include="Scripts\jquery-2.2.3.js" />
     <Content Include="Scripts\jquery-2.2.3.min.js" />
+    <Content Include="Scripts\registration-module.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -931,7 +940,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -940,6 +948,8 @@
     <Content Include="Views\Courses\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Views\Instructors\Index.cshtml" />
+    <Content Include="Views\Registration\Index.cshtml" />
     <None Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <PropertyGroup>
