@@ -113,7 +113,6 @@
     <Compile Include="Controllers\CoursesController.cs" />
     <Compile Include="Controllers\InstructorsController.cs" />
     <Compile Include="Controllers\JsonController.cs" />
-    <Compile Include="Controllers\RegistrationController.cs" />
     <Compile Include="Controllers\StudentVm.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -949,13 +948,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Registration\Index.cshtml" />
-    <None Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="templates\registration.html" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

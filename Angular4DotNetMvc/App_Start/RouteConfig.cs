@@ -13,10 +13,6 @@ namespace Angular4DotNetMvc
     {
       routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-      routes.MapRoute(name: "Registration SPA",
-        url: "Registration/{*catchall}",
-        defaults: new { controller = "Registration", action = "Index" });
-
       routes.MapRoute(
           name: "Default",
           url: "{controller}/{action}/{id}",
