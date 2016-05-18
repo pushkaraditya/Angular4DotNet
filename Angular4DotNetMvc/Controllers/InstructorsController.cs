@@ -8,6 +8,7 @@ namespace Angular4DotNetMvc.Controllers
   {
     public InstructorVm[] Get()
     {
+      System.Threading.Thread.Sleep(5000);
       return new RegistrationVmBuilder().GetInstrcutorVms();
     }
   }
