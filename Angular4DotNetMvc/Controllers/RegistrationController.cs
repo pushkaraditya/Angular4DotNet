@@ -7,7 +7,10 @@ namespace Angular4DotNetMvc.Controllers
   {
     public ActionResult Index()
     {
-      return View("Index", "", new RegistrationVmBuilder().BuildRegistrationVm());
+      //var settings = new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() };
+      //return JsonConvert.SerializeObject(courses, settings);
+
+      return View("Index");
     }
   }
 }
