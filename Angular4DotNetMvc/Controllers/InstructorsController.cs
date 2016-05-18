@@ -1,13 +1,14 @@
-﻿using System.Web.Mvc;
+﻿using System.Web.Http;
+using Angular4DotNetMvc.Models.Instructors;
 using Angular4DotNetMvc.Models.Registration;
 
 namespace Angular4DotNetMvc.Controllers
 {
-  public class InstructorsController : JsonController
+  public class InstructorsController : ApiController
   {
-    public ActionResult Index()
+    public InstructorVm[] Get()
     {
-      return Json(new RegistrationVmBuilder().GetInstrcutorVms(), JsonRequestBehavior.AllowGet);
+      return new RegistrationVmBuilder().GetInstrcutorVms();
     }
   }
 }
