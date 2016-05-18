@@ -1,16 +1,27 @@
-﻿using System.Net;
+﻿using System.Linq;
+using System.Collections.Generic;
+using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using System.Web.Mvc;
 
 namespace Angular4DotNetMvc.Controllers
 {
   public class AccountController : ApiController
   {
-    public HttpResponseMessage Post(StudentVm student)
+    public HttpResponseMessage Post(HttpRequestMessage request, StudentVm student)
     {
-      // Save student
-      return new HttpResponseMessage(HttpStatusCode.OK);
+      if (student != null && ModelState.IsValid)
+      {
+        // Save student
+        return new HttpResponseMessage(HttpStatusCode.OK);
+      }
+
+      return request.CreateResponse(HttpStatusCode.BadRequest, GetErrorMessages());
+    }
+
+    private IEnumerable<string> GetErrorMessages()
+    {
+      return ModelState.Values.SelectMany(x => x.Errors.Select(e => e.ErrorMessage));
     }
   }
 }
