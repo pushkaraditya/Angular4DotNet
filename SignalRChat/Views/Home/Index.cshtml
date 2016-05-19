@@ -3,14 +3,24 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
-<style>
-</style>
-<ul id="messages">
-  <li>test</li>
-  <li>test</li>
-  <li>test</li>
-</ul>
-<form action="">
-  <input id="m" autocomplete="off" /><button>Send</button>
-</form>
+<h2>Chat App</h2>
+
+<div style="width:450px; background-color:red" ng-controller="mainCtrl">
+  <div class="panel panel-info" style="margin-top:30px; margin-left:20px">
+    <div class="panel-heading">
+      <div class="row">
+        <div class="col-lg-4"><h3 class="panel-title">Real Time Chat</h3></div>
+      </div>
+    </div>
+
+    <div class="panel-body">
+      <div class="scrollable">
+        <div ng-repeat="msg in messages">{{msg.message}}</div>
+      </div>
+      <div>
+        <input ng-model="newMessage" class="form-control input-sm pull-left" style="width:80%" type="text" />
+        <button ng-click="sendMessage()" class="pull-right btn btn-primary btn-sm">Send</button>
+      </div>
+    </div>
+  </div>
+</div>

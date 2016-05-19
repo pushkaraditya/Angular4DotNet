@@ -7,13 +7,15 @@
   @Styles.Render("~/Content/css")
   @Scripts.Render("~/bundles/modernizr")
 </head>
-<body>
+<body ng-app="app">
   @RenderBody()
 
   @Scripts.Render("~/bundles/jquery")
+  @Scripts.Render("~/bundles/bootstrap")
   @Scripts.Render("~/bundles/signalr")
   <script src="/signalr/hubs"></script>
   @Scripts.Render("~/bundles/angular")
+  @Scripts.Render("~/bundles/code")
   @RenderSection("scripts", required: false)
 </body>
 </html>
