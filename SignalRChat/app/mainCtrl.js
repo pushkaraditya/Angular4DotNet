@@ -1,51 +1,47 @@
-﻿angular.module("app").controller("mainCtrl", function ($scope, chat) {
+﻿angular.module("app").controller("mainCtrl", function ($scope, chat, toastr) {
   $scope.messages = [];
   $scope.inRoom = false;
   $scope.nameSet = false;
-  $scope.step = 1;
 
   $scope.joinRoom = function () {
-    chat.server.joinRoom($scope.roomName)
+    chat.server.joinRoom($scope.roomName, $scope.name)
       .then(function () {
         $scope.inRoom = true;
-        if ($scope.nameSet)
-          $scope.step = 3;
-        else
-          $scope.step = 2;
-        $scope.$broadcast('step');
         $scope.$apply();
       });
   };
 
   $scope.leaveRoom = function () {
-    chat.server.leaveRoom($scope.roomName)
+    chat.server.leaveRoom($scope.roomName, $scope.name)
       .then(function () {
         $scope.inRoom = false;
-        $scope.step = 1;
-        $scope.$broadcast('step');
         $scope.$apply();
       });
   };
 
   $scope.setName = function () {
     $scope.nameSet = true;
-    $scope.$broadcast('step');
-    $scope.step = 3;
   };
 
 
   $scope.sendMessage = function () {
-    chat.server.sendMessage({ message: $scope.newMessage, roomName: $scope.roomName, name: $scope.name });
-    $scope.newMessage = "";
+    chat.server.sendMessage({ message: $scope.newMessage, roomName: $scope.roomName, name: $scope.name })
+      .then(function () {
+        var message = "Me: " + $scope.newMessage;
+        $scope.newMessage = "";
+        onNewMessage(message);
+      });
   };
 
-  chat.client.newMessage = function onNewMessage(message) {
-    displayMessage(message);
+  chat.client.newMessage = onNewMessage;
+
+  function onNewMessage(message) {
+    $scope.messages.push({ message: message });
     $scope.$apply();
     console.log(message);
   };
 
-  displayMessage = function (message) {
-    $scope.messages.push({ message: message });
+  chat.client.newNotification = function onNotification(msg) {
+    toastr.success(msg);
   };
 });

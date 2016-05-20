@@ -12,16 +12,18 @@ namespace SignalRChat
   {
     public void SendMessage(SentData data)
     {
-      Clients.Group(data.RoomName).newMessage(data.Name + ": " + data.Message);
+      Clients.Group(data.RoomName, Context.ConnectionId).newMessage(data.Name + ": " + data.Message);
     }
 
-    public void JoinRoom(string roomName)
+    public void JoinRoom(string roomName, string name)
     {
+      Clients.OthersInGroup(roomName).newNotification(name + " has joined the room");
       Groups.Add(Context.ConnectionId, roomName);
     }
 
-    public void LeaveRoom(string roomName)
+    public void LeaveRoom(string roomName, string name)
     {
+      Clients.OthersInGroup(roomName).newNotification(name + " has left the room");
       Groups.Remove(Context.ConnectionId, roomName);
     }
   }
