@@ -1,0 +1,16 @@
+{
+  http://www.codebelt.com/javascript/install-grunt-js-on-windows/
+  "name": "app",
+  "version": "1.0.0",
+  "description": "sample application for course",
+  "main": "app.js",
+  "dependencies": {
+    "grunt": "^1.0.1"
+  },
+  "devDependencies": { },
+  "scripts": {
+    "test": "ehco \"Error: no test specified\" && exit 1"
+  },
+  "author": "Pushkar Aditya",
+  "license": "ISC"
+}
